@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restx import Api
+
 from app.config import Config
 from app.database import db
 from app.views.directors import directors_ns
@@ -26,7 +27,5 @@ def configure_app(application: Flask):
 if __name__ == '__main__':
     app_config = Config()
     app = create_app(app_config)
-
     configure_app(app)
-
     app.run()

@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields
-from database import db
+from app.database import db
 
 
 class Movie(db.Model):

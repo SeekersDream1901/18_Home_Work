@@ -4,7 +4,7 @@ from flask_restx import Resource, Namespace
 from app.database import db
 from app.models import DirectorSchema, Director
 
-directors_ns = Namespace('director')
+directors_ns = Namespace('directors')
 
 director_schema = DirectorSchema()
 directors_schema = DirectorSchema(many=True)
@@ -14,6 +14,7 @@ directors_schema = DirectorSchema(many=True)
 class DirectorsView(Resource):
     def get(self):
         all_directors = db.session.query(Director)
+        print(all_directors)
         return directors_schema.dump(all_directors), 200
 
     def post(self):
